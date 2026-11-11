@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Librio Search Bar</title>
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="headerfooter.css">
+
+  <style>
+    .logo{
+      display: flex;
+    }
+    .logo h1{
+      position: relative;
+      font-size: 24px;
+      top:10%;
+      padding-left: 3%;
+    }
+    .dropdown-content {
+       display: none;
+       position: absolute;
+       background-color: #444;
+       min-width: 200px;
+       left: 0;
+       box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+       padding: 10px;
+   }
+   .dropdown ul{
+       list-style: none;
+
+   }      
+    .dropdown-content li {
+       width: 100%;
+       position: relative;
+   }
+
+    .dropdown-content a {
+       padding: 10px;
+       display: block;
+       color: white;
+   }
+
+   .dropdown-content a:hover {
+       background-color: #555;
+   }
+</style>
+
+</head>
+<body>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+       const dropdown = document.querySelector(".dropdown");
+       const dropdownContent = document.querySelector(".dropdown-content");
+
+       dropdown.addEventListener("click", function (event) {
+           event.stopPropagation();
+           dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+       });
+
+       // First Nested Dropdowns (Web Design & SEO)
+       document.querySelectorAll(".nested-dropbtn").forEach(button => {
+           button.addEventListener("click", function (event) {
+               event.stopPropagation();
+               this.parentElement.classList.toggle("open");
+           });
+       });
+
+       // Second Nested Dropdown (Advanced SEO)
+       const secondNestedDropdown = document.querySelector(".second-nested-dropdown");
+       const secondNestedDropbtn = document.querySelector(".second-nested-dropbtn");
+
+       secondNestedDropbtn.addEventListener("click", function (event) {
+           event.stopPropagation();
+           secondNestedDropdown.classList.toggle("open");
+       });
+
+       document.addEventListener("click", function () {
+           dropdownContent.style.display = "none";
+           document.querySelectorAll(".nested-dropdown").forEach(el => el.classList.remove("open"));
+           document.querySelector(".second-nested-dropdown").classList.remove("open");
+       });
+   });
+</script>
+
+</head>
+<body>
+ 
+ 
+  <header>
+    <div class="logo"><img src="logo 3.png" alt=""><h1>librio</h1></div>
+    <nav>
+      <ul>
+        <li><a href="library management.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" >Catalog </a><a href="#" class="dropbtn"> ▾</a>
+          <ul class="dropdown-content">
+              <li>
+                  <a href="Novel.html">Novel</a>
+                  
+              </li>
+              <li>
+                  <a href="horror.html">Horror</a>
+                  
+              </li>
+              <li>
+                  <a href="friction.html">Frictional</a>
+                  
+              </li>
+              <li>
+                  <a href="science.html">Scentific</a>
+                  
+              </li>
+          </ul>
+        <li><a href="search.html">Search</a></li>
+        <li> <a href="login.html">login</a>/<a href="register.html">Register </a> </li>
+        <li><a href="contact us.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Our Library</h1>
+    <p>Explore thousands of books, journals, and more.</p>
+    <input type="text" placeholder="Search for books...">
+  </section>
+
+  <section class="featured-books">
+    <h2>Featured Books</h2>
+    <div class="book-card">
+      <img src="https://i.guim.co.uk/img/media/77e3e93d6571da3a5d77f74be57e618d5d930430/0_0_2560_1536/master/2560.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=c99740fab952ee29d238d75272b98a61" alt="Book 1">
+      <p>Book Title</p>
+      <p>Author</p>
+      <button>More Details</button>
+    </div>
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Library Name. All rights reserved.</p>
+    <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
